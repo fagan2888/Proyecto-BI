@@ -1,5 +1,7 @@
 import glob
 import pandas as pd
+import pdb
+import os
 
 DEFAULT_VALUE = "NE"
 
@@ -8,6 +10,7 @@ def merge(basis, merger):
 
 	reference = basis.columns
 	additions = merger.columns
+	pdb.set_trace()
 	missingRef = []
 	missingAdd = []
 	for ref in reference:
@@ -36,9 +39,9 @@ def merge(basis, merger):
 
 
 
-path = './Data/'
+path = os.path.join('.','Data','EncuestasCCA-2018')
 
-files = [f for f in glob.glob(path + "**/*.csv", recursive=True)]
+files = [f for f in glob.glob(os.path.join(path, "*.csv"), recursive=True)]
 
 colCount = 0
 rowCount = 0
